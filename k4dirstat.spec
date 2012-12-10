@@ -35,3 +35,10 @@ popd
 %{_kde_datadir}/config.kcfg/k4dirstat.kcfg
 %{_kde_docdir}/HTML/en/k4dirstat/
 %{_kde_iconsdir}/hicolor/*/apps/k4dirstat.*
+
+
+%changelog
+* Fri Mar 16 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.1-0.20101010.1
++ Revision: 785311
+- imported package k4dirstat
+
