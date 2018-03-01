@@ -1,15 +1,14 @@
-%define snapshot 20101010
-
 Name:		k4dirstat
 Summary:	Ggraphical disk usage utility
-Version:	0.1
-Release:	%{?snapshot:0.%{snapshot}.}1
+Version:	3.1.3
+Release:	1
 License:	GPLv2
 Group:		File tools
-URL:		http://grumpypenguin.org/
-Source0:	kdirstat-%{snapshot}.tar.xz
-BuildRequires:	kdelibs4-devel
-BuildRequires:	kdebase4-devel
+URL:		https://bitbucket.org/jeromerobert/k4dirstat/wiki/Home
+Source0:	https://bitbucket.org/jeromerobert/k4dirstat/get/k4dirstat-%{version}.tar.gz
+BuildRequires:	cmake(ECM)
+BuildRequires:	cmake(Qt5Gui) cmake(Qt5Core) cmake(Qt5Widgets)
+BuildRequires:	cmake(KF5CoreAddons) cmake(KF5I18n) cmake(KF5DocTools) cmake(KF5XmlGui) cmake(KF5KIO) cmake(KF5JobWidgets) cmake(KF5IconThemes)
 
 %description
 KDirStat is a graphical disk usage utility, very much like the Unix "du"
@@ -17,28 +16,20 @@ command. In addition to that, it comes with some cleanup facilities to reclaim
 disk space. 
 
 %prep
-%setup -q -n kdirstat-%{snapshot}
+%setup -qn jeromerobert-k4dirstat-fcf698417d42
 
 %build
-%cmake
-%make
+%cmake_kde5
+%ninja
 
 %install
-pushd build
-%makeinstall_std
-popd
+%ninja_install -C build
+%find_lang %{name}
 
-%files
+%files -f %{name}.lang
 %{_bindir}/k4dirstat
-%{_kde_applicationsdir}/k4dirstat.desktop
-%{_kde_appsdir}/k4dirstat/
-%{_kde_datadir}/config.kcfg/k4dirstat.kcfg
-%{_kde_docdir}/HTML/en/k4dirstat/
-%{_kde_iconsdir}/hicolor/*/apps/k4dirstat.*
-
-
-%changelog
-* Fri Mar 16 2012 Dmitry Mikhirev <dmikhirev@mandriva.org> 0.1-0.20101010.1
-+ Revision: 785311
-- imported package k4dirstat
-
+%{_kde5_applicationsdir}/k4dirstat.desktop
+%{_kde5_datadir}/config.kcfg/k4dirstat.kcfg
+%{_kde5_docdir}/HTML/en/k4dirstat/
+%{_kde5_iconsdir}/hicolor/*/apps/k4dirstat.*
+%{_mandir}/man1/%{name}.1*
