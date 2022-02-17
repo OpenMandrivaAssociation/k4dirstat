@@ -1,14 +1,22 @@
 Name:		k4dirstat
 Summary:	Ggraphical disk usage utility
-Version:	3.1.3
+Version:	3.4.0
 Release:	1
 License:	GPLv2
 Group:		File tools
 URL:		https://bitbucket.org/jeromerobert/k4dirstat/wiki/Home
-Source0:	https://bitbucket.org/jeromerobert/k4dirstat/get/k4dirstat-%{version}.tar.gz
+Source0:	https://github.com/jeromerobert/k4dirstat/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
 BuildRequires:	cmake(ECM)
-BuildRequires:	cmake(Qt5Gui) cmake(Qt5Core) cmake(Qt5Widgets)
-BuildRequires:	cmake(KF5CoreAddons) cmake(KF5I18n) cmake(KF5DocTools) cmake(KF5XmlGui) cmake(KF5KIO) cmake(KF5JobWidgets) cmake(KF5IconThemes)
+BuildRequires:	cmake(Qt5Gui) 
+BuildRequires:	cmake(Qt5Core) 
+BuildRequires:	cmake(Qt5Widgets)
+BuildRequires:	cmake(KF5CoreAddons) 
+BuildRequires:	cmake(KF5I18n) 
+BuildRequires:	cmake(KF5DocTools) 
+BuildRequires:	cmake(KF5XmlGui) 
+BuildRequires:	cmake(KF5KIO) 
+BuildRequires:	cmake(KF5JobWidgets) 
+BuildRequires:	cmake(KF5IconThemes)
 
 %description
 KDirStat is a graphical disk usage utility, very much like the Unix "du"
@@ -16,7 +24,7 @@ command. In addition to that, it comes with some cleanup facilities to reclaim
 disk space. 
 
 %prep
-%setup -qn jeromerobert-k4dirstat-fcf698417d42
+%autosetup -p1
 
 %build
 %cmake_kde5
