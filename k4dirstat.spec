@@ -1,6 +1,6 @@
 Name:		k4dirstat
 Summary:	Ggraphical disk usage utility
-Version:	3.4.0
+Version:	3.4.2
 Release:	1
 License:	GPLv2
 Group:		File tools
