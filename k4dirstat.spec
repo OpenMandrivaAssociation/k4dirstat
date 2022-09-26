@@ -17,6 +17,7 @@ BuildRequires:	cmake(KF5XmlGui)
 BuildRequires:	cmake(KF5KIO) 
 BuildRequires:	cmake(KF5JobWidgets) 
 BuildRequires:	cmake(KF5IconThemes)
+BuildRequires:	pkgconfig(zlib)
 
 %description
 KDirStat is a graphical disk usage utility, very much like the Unix "du"
