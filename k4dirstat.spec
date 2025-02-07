@@ -1,11 +1,12 @@
 Name:		k4dirstat
 Summary:	Ggraphical disk usage utility
 Version:	3.4.3
-Release:	1
+Release:	2
 License:	GPLv2
 Group:		File tools
 URL:		https://bitbucket.org/jeromerobert/k4dirstat/wiki/Home
 Source0:	https://github.com/jeromerobert/k4dirstat/archive/refs/tags/%{version}/%{name}-%{version}.tar.gz
+Patch1:		k4dirstat-fix-menu-entry-on-wayland.patch
 BuildRequires:	cmake(ECM)
 BuildRequires:	cmake(Qt5Gui) 
 BuildRequires:	cmake(Qt5Core) 
